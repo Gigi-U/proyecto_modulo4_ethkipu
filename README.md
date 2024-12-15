@@ -80,8 +80,15 @@ We welcome contributions to Scaffold-ETH 2!
 Please see [CONTRIBUTING.MD](https://github.com/scaffold-eth/scaffold-eth-2/blob/main/CONTRIBUTING.md) for more information and guidelines for contributing to Scaffold-ETH 2.
 
 
-## para cambiar la red
+## TO CHANGE NETWORKS
+FOLLOW VIDEO INSTRUCTIONS -> https://medium.com/@sibkatya/building-dapps-with-scaffold-eth-2-from-hardhat-to-testnet-8babb40b6617
+
 yarn deploy --network hardhat
 o
 yarn deploy --network sepolia
 
+
+## IF NEEDED TO DEPLOY WITH SEPOLIA NETWORK
+ALCHEMY_API_KEY=
+DEPLOYER_PRIVATE_KEY=
+ETHERSCAN_API_KEY=
