@@ -1,94 +1,136 @@
-# 🏗 Scaffold-ETH 2
+# Swappme-Dex: Decentralized Exchange Front-End 🚀
 
-<h4 align="center">
-  <a href="https://docs.scaffoldeth.io">Documentation</a> |
-  <a href="https://scaffoldeth.io">Website</a>
-</h4>
-
-🧪 An open-source, up-to-date toolkit for building decentralized applications (dapps) on the Ethereum blockchain. It's designed to make it easier for developers to create and deploy smart contracts and build user interfaces that interact with those contracts.
-
-⚙️ Built using NextJS, RainbowKit, Hardhat, Wagmi, Viem, and Typescript.
-
-- ✅ **Contract Hot Reload**: Your frontend auto-adapts to your smart contract as you edit it.
-- 🪝 **[Custom hooks](https://docs.scaffoldeth.io/hooks/)**: Collection of React hooks wrapper around [wagmi](https://wagmi.sh/) to simplify interactions with smart contracts with typescript autocompletion.
-- 🧱 [**Components**](https://docs.scaffoldeth.io/components/): Collection of common web3 components to quickly build your frontend.
-- 🔥 **Burner Wallet & Local Faucet**: Quickly test your application with a burner wallet and local faucet.
-- 🔐 **Integration with Wallet Providers**: Connect to different wallet providers and interact with the Ethereum network.
-
-![Debug Contracts tab](https://github.com/scaffold-eth/scaffold-eth-2/assets/55535804/b237af0c-5027-4849-a5c1-2e31495cccb1)
-
-## Requirements
-
-Before you begin, you need to install the following tools:
-
-- [Node (>= v18.18)](https://nodejs.org/en/download/)
-- Yarn ([v1](https://classic.yarnpkg.com/en/docs/install/) or [v2+](https://yarnpkg.com/getting-started/install))
-- [Git](https://git-scm.com/downloads)
-
-## Quickstart
-
-To get started with Scaffold-ETH 2, follow the steps below:
-
-1. Install dependencies if it was skipped in CLI:
-
-```
-cd my-dapp-example
-yarn install
-```
-
-2. Run a local network in the first terminal:
-
-```
-yarn chain
-```
-
-This command starts a local Ethereum network using Hardhat. The network runs on your local machine and can be used for testing and development. You can customize the network configuration in `packages/hardhat/hardhat.config.ts`.
-
-3. On a second terminal, deploy the test contract:
-
-```
-yarn deploy
-```
-
-This command deploys a test smart contract to the local network. The contract is located in `packages/hardhat/contracts` and can be modified to suit your needs. The `yarn deploy` command uses the deploy script located in `packages/hardhat/deploy` to deploy the contract to the network. You can also customize the deploy script.
-
-4. On a third terminal, start your NextJS app:
-
-```
-yarn start
-```
-
-Visit your app on: `http://localhost:3000`. You can interact with your smart contract using the `Debug Contracts` page. You can tweak the app config in `packages/nextjs/scaffold.config.ts`.
-
-Run smart contract test with `yarn hardhat:test`
-
-- Edit your smart contracts in `packages/hardhat/contracts`
-- Edit your frontend homepage at `packages/nextjs/app/page.tsx`. For guidance on [routing](https://nextjs.org/docs/app/building-your-application/routing/defining-routes) and configuring [pages/layouts](https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts) checkout the Next.js documentation.
-- Edit your deployment scripts in `packages/hardhat/deploy`
+Welcome to **Swappme-Dex**, a user-friendly front-end application designed to interact seamlessly with the **SimpleDEX** contract of the Eth Kipu project. This platform allows you to easily manage liquidity and perform token swaps on the Ethereum blockchain. Built with **Scaffold-ETH** and designed for ease of use, Swappme-Dex gives you the tools to exchange tokens and manage liquidity with a clean and responsive UI.
 
 
-## Documentation
+---
 
-Visit our [docs](https://docs.scaffoldeth.io) to learn how to start building with Scaffold-ETH 2.
+## 🚧 Home Page: Under Construction 🚧
 
-To know more about its features, check out our [website](https://scaffoldeth.io).
+The **Home Page** is currently under development. It will soon display key information, such as:  
+- Token prices  
+- User liquidity stats  
+- An overview of available features  
 
-## Contributing to Scaffold-ETH 2
+In the meantime, all the features are fully functional and accessible on the **Debug Contracts Page**.  
 
-We welcome contributions to Scaffold-ETH 2!
+---
 
-Please see [CONTRIBUTING.MD](https://github.com/scaffold-eth/scaffold-eth-2/blob/main/CONTRIBUTING.md) for more information and guidelines for contributing to Scaffold-ETH 2.
+## Features ✨
+
+- **Add Liquidity**: Deposit your tokens into the liquidity pool to earn rewards!  
+- **Withdraw Liquidity**: Remove your tokens from the liquidity pool when you wish.  
+- **Swap Tokens**: Effortlessly swap **Token A ↔ Token B**.  
+- **Get Token Price**: Retrieve the current price of tokens in the pool.  
+- **Ethereum Blockchain Integration**: Fully compatible with Ethereum and decentralized exchanges.  
+
+---
+
+## Requirements 📝
+
+This project implements the requirements set for the **SimpleDEX** front-end:
+
+- Interact with the **SimpleDEX contract** (deployed in Module 3).
+- Allow the user to **add liquidity**, **withdraw liquidity**, and **swap tokens** between **Token A** and **Token B**.
+- Provide a feature to **fetch token prices**.
+- Implement any instructor recommendations provided during the review of **Module 3**.
+
+---
+
+## Technologies Used 💻
+
+- **React.js**: Fast and modern front-end framework for building interactive UIs.  
+- **Scaffold-ETH**: The ultimate tool to rapidly deploy Ethereum DApps and smart contracts.  
+- **Web3.js**: Library for interacting with the Ethereum blockchain.  
+- **Solidity**: Ethereum smart contract language (SimpleDEX contract).  
+- **Tailwind CSS**: Styling framework for a clean, responsive layout.
+
+---
+
+## How to Use the Application 💡
+
+1. **Connect your Wallet**: Use **MetaMask** or any Ethereum-compatible wallet to interact with the application.  
+2. **Add Liquidity**: Choose the tokens you want to deposit and confirm the transaction.  
+3. **Withdraw Liquidity**: Select the amount you want to remove and confirm the withdrawal.  
+4. **Swap Tokens**: Select the tokens you want to exchange, enter the amount, and execute the swap.  
+5. **Get Token Price**: Get the current price of a token from the liquidity pool with a simple click.  
+
+---
+
+## Getting Started 🔧
+
+1. **Clone the Repository**:
+
+    ```bash
+    git clone https://github.com/yourusername/swappme-dex.git
+    ```
+
+2. **Install Dependencies**:
+
+    ```bash
+    cd swappme-dex
+    npm install
+    ```
+
+3. **Start the App**:
+
+    ```bash
+    npm start
+    ```
+
+4. **Access the Application**:  
+Go to [http://localhost:3000](http://localhost:3000) in your browser and start interacting with the DEX! 🌐
+
+---
+
+## Screenshots 📸
+
+Here are some screenshots of the interface:
+
+![Swappme-Dex Home](./screenshots/home.png)
+<img width="951" alt="swappmeHOME" src="https://github.com/user-attachments/assets/6d3cb705-8145-4976-bbaf-2e33813c80ee" />
+
+<img width="955" alt="DebugContractsPage" src="https://github.com/user-attachments/assets/9e42f642-990e-4aa2-b6e1-f3b55944ff98" />
+
+---
+
+## License 📜
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## Acknowledgments 💖
+
+- **Scaffold-ETH** for providing an amazing framework to build DApps.
+- The **Ethereum** community for pushing the boundaries of decentralized finance (DeFi).
+- Special thanks to the **Eth Kipu** course for providing an excellent foundation for this project. 
+
+---
+
+## To deploy to Sepolia Network:
+### VIDEO INSTRUCTIONS -> https://medium.com/@sibkatya/building-dapps-with-scaffold-eth-2-from-hardhat-to-testnet-8babb40b6617
+### bash command:
+        ```bash
+    yarn deploy --network sepolia
+    ```
+### at .env file
+ALCHEMY_API_KEY=your-alchemy-api-key
+DEPLOYER_PRIVATE_KEY=your-deployer-private-key
+ETHERSCAN_API_KEY=your-etherscan-api-key
 
 
-## TO CHANGE NETWORKS
-FOLLOW VIDEO INSTRUCTIONS -> https://medium.com/@sibkatya/building-dapps-with-scaffold-eth-2-from-hardhat-to-testnet-8babb40b6617
+### if you change your mind
 
-yarn deploy --network hardhat
-o
-yarn deploy --network sepolia
+    ```bash
+    yarn deploy --network hardhat
+    ```
+---
 
+About the Developer 👩‍💻
+Swappme-Dex was developed by Gisela Urriza.
 
-## IF NEEDED TO DEPLOY WITH SEPOLIA NETWORK
-ALCHEMY_API_KEY=
-DEPLOYER_PRIVATE_KEY=
-ETHERSCAN_API_KEY=
+LinkedIn: your-linkedin-profile
+GitHub: Gigi-U
+
+Feel free to reach out if you have questions, suggestions, or ideas to improve the project!
