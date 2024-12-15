@@ -11,6 +11,8 @@ const Home: NextPage = () => {
   const { address: connectedAddress } = useAccount();
 
   const [selectedToken, setSelectedToken] = useState("tokenA");
+  const [actionType, setActionType] = useState("swap"); // Nuevo estado para saber si es swap, add, or withdraw
+  const [value, setValue] = useState(""); // Para almacenar el valor del input
   const [price, setPrice] = useState<string>("");
   const [priceFetched, setPriceFetched] = useState<boolean>(false);
 
@@ -54,6 +56,15 @@ const Home: NextPage = () => {
     }
   };
 
+  const handleAction = () => {
+    // Lógica para manejar el SWAP, ADD, WITHDRAW
+    if (actionType === "swap") {
+      console.log(`Swapping ${value} of ${selectedToken}`);
+    } else if (actionType === "add" || actionType === "withdraw") {
+      console.log(`Liquidity action: ${actionType} ${value}`);
+    }
+  };
+
   return (
     <>
       <div className="flex items-center flex-col flex-grow pt-10">
@@ -69,35 +80,72 @@ const Home: NextPage = () => {
         </div>
 
         <div className="flex-grow bg-base-300 w-full mt-16 px-8 py-12">
-          <h1 className="text-3xl font-bold text-left margin-left px-10 ">TOKEN ACTIONS</h1>
-          <div className="flex justify-center items-center gap-8 flex-wrap sm:flex-nowrap">
+          <h1 className="text-3xl font-bold text-left margin-left px-20">TOKEN ACTIONS</h1>
+          <p className="font-bold text-center text-red-500"> 🚧 FEATURES UNDER CONSTRUCTION🚧 </p>
+          <div className="flex justify-center items-stretch gap-8 flex-wrap sm:flex-nowrap">
             {/* Primer DIV */}
-            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center rounded-3xl h-full min-h-[250px]">
-              <p>SWAP</p>
-              <p>
-                Tinker with your smart contract using the{" "}
-                <Link href="/debug" passHref className="link">
-                  Debug Contracts
-                </Link>{" "}
-                tab.
-              </p>
+            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center rounded-3xl w-[30%] min-h-full">
+              <p className="font-bold">SWAP</p>
+              {/* Menú Desplegable para seleccionar Token */}
+              <div className="my-4">
+                <select
+                  className="select select-primary w-48 max-w-xs"
+                  value={selectedToken}
+                  onChange={e => setSelectedToken(e.target.value)}
+                >
+                  <option value="tokenA">From Token A to Token B</option>
+                  <option value="tokenB">From Token B to Token A</option>
+                </select>
+              </div>
+              {/* Input para ingresar el valor */}
+              <div className="my-4">
+                <input
+                  type="number"
+                  className="input input-bordered w-48"
+                  placeholder="Enter value"
+                  value={value}
+                  onChange={e => setValue(e.target.value)}
+                />
+              </div>
+              {/* Botón para realizar el swap */}
+              <button className="btn btn-primary w-48 py-4" onClick={handleAction}>
+                SWAP
+              </button>
             </div>
 
             {/* Segundo DIV */}
-            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center rounded-3xl h-full min-h-[250px]">
-              <p>MANAGE LIQUIDITY</p>
-              <p>
-                Explore your local transactions with the{" "}
-                <Link href="/blockexplorer" passHref className="link">
-                  Block Explorer
-                </Link>{" "}
-                tab.
-              </p>
+            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center rounded-3xl w-[30%] min-h-full">
+              <p className="font-bold">MANAGE LIQUIDITY</p>
+              {/* Menú Desplegable para seleccionar Add o Withdraw */}
+              <div className="my-4">
+                <select
+                  className="select select-primary w-48 max-w-xs"
+                  value={actionType}
+                  onChange={e => setActionType(e.target.value)}
+                >
+                  <option value="add">Add Liquidity</option>
+                  <option value="withdraw">Withdraw Liquidity</option>
+                </select>
+              </div>
+              {/* Input para ingresar el valor */}
+              <div className="my-4">
+                <input
+                  type="number"
+                  className="input input-bordered w-48"
+                  placeholder="Enter value"
+                  value={value}
+                  onChange={e => setValue(e.target.value)}
+                />
+              </div>
+              {/* Botón para realizar la acción de liquidez */}
+              <button className="btn btn-primary w-48 py-4" onClick={handleAction}>
+                {actionType === "add" ? "Add" : "WITHDRAW"}
+              </button>
             </div>
 
             {/* Tercer DIV */}
-            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center rounded-3xl flex-1 min-h-[250px]">
-              <p>GET PRICE</p>
+            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center rounded-3xl w-[30%] min-h-full">
+              <p className="font-bold">GET PRICE</p>
               {/* Dropdown para seleccionar token */}
               <div className="my-4">
                 <select
@@ -109,12 +157,10 @@ const Home: NextPage = () => {
                   <option value="tokenB">Token B</option>
                 </select>
               </div>
-
               {/* Botón para obtener precio */}
               <button className="btn btn-primary w-48 py-4" onClick={handleGetPrice}>
-                Get
+                GET
               </button>
-
               {/* Mostrar precio o mensaje */}
               {priceFetched && price ? (
                 <p className={`my-4 ${price === "Error retrieving price" ? "text-red-500" : "text-green-500"}`}>
