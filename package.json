@@ -37,8 +37,8 @@
     "verify": "yarn workspace @se-2/hardhat verify"
   },
   "devDependencies": {
-    "husky": "~8.0.3",
-    "lint-staged": "~13.2.2"
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.11"
   },
   "packageManager": "yarn@3.2.3",
   "engines": {
