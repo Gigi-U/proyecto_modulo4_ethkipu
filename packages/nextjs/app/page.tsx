@@ -12,13 +12,11 @@ const Home: NextPage = () => {
 
   const [selectedToken, setSelectedToken] = useState("tokenA");
   const [price, setPrice] = useState<string>("");
-  const [priceFetched, setPriceFetched] = useState<boolean>(false); // Nueva variable de estado
+  const [priceFetched, setPriceFetched] = useState<boolean>(false);
 
-  // Definir las direcciones de los tokens
   const tokenAAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
   const tokenBAddress = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512";
 
-  // Usar useReadContract para obtener el precio de acuerdo al token seleccionado
   const { data: priceData, refetch: fetchPrice } = useReadContract({
     address: selectedToken === "tokenA" ? tokenAAddress : tokenBAddress,
     abi: [
@@ -43,7 +41,7 @@ const Home: NextPage = () => {
     if (connectedAddress) {
       try {
         const result = await fetchPrice();
-        setPriceFetched(true); // Se ha intentado obtener el precio
+        setPriceFetched(true);
         if (result?.data) {
           const priceValue = BigInt(result.data).toString();
           setPrice(priceValue);
@@ -71,9 +69,11 @@ const Home: NextPage = () => {
         </div>
 
         <div className="flex-grow bg-base-300 w-full mt-16 px-8 py-12">
-          <div className="flex justify-center items-center gap-12 flex-col sm:flex-row">
-            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
-              <BugAntIcon className="h-8 w-8 fill-secondary" />
+          <h1 className="text-3xl font-bold text-left margin-left px-10 ">TOKEN ACTIONS</h1>
+          <div className="flex justify-center items-center gap-8 flex-wrap sm:flex-nowrap">
+            {/* Primer DIV */}
+            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center rounded-3xl h-full min-h-[250px]">
+              <p>SWAP</p>
               <p>
                 Tinker with your smart contract using the{" "}
                 <Link href="/debug" passHref className="link">
@@ -83,8 +83,9 @@ const Home: NextPage = () => {
               </p>
             </div>
 
-            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
-              <MagnifyingGlassIcon className="h-8 w-8 fill-secondary" />
+            {/* Segundo DIV */}
+            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center rounded-3xl h-full min-h-[250px]">
+              <p>MANAGE LIQUIDITY</p>
               <p>
                 Explore your local transactions with the{" "}
                 <Link href="/blockexplorer" passHref className="link">
@@ -94,33 +95,27 @@ const Home: NextPage = () => {
               </p>
             </div>
 
-            {/* Sección de Obtener Precio */}
-            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
-              <MagnifyingGlassIcon className="h-8 w-8 fill-secondary" />
-              <p>Get Price</p>
-
-              {/* Botones para seleccionar token */}
+            {/* Tercer DIV */}
+            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center rounded-3xl flex-1 min-h-[250px]">
+              <p>GET PRICE</p>
+              {/* Dropdown para seleccionar token */}
               <div className="my-4">
-                <button
-                  className={`btn btn-primary ${selectedToken === "tokenA" ? "btn-active" : ""}`}
-                  onClick={() => setSelectedToken("tokenA")}
+                <select
+                  className="select select-primary w-48 max-w-xs"
+                  value={selectedToken}
+                  onChange={e => setSelectedToken(e.target.value)}
                 >
-                  Token A
-                </button>
-                <button
-                  className={`btn btn-primary ${selectedToken === "tokenB" ? "btn-active" : ""}`}
-                  onClick={() => setSelectedToken("tokenB")}
-                >
-                  Token B
-                </button>
+                  <option value="tokenA">Token A</option>
+                  <option value="tokenB">Token B</option>
+                </select>
               </div>
 
               {/* Botón para obtener precio */}
-              <button className="btn btn-primary" onClick={handleGetPrice}>
+              <button className="btn btn-primary w-48 py-4" onClick={handleGetPrice}>
                 Get
               </button>
 
-              {/* Mostrar el precio o mensaje de error */}
+              {/* Mostrar precio o mensaje */}
               {priceFetched && price ? (
                 <p className={`my-4 ${price === "Error retrieving price" ? "text-red-500" : "text-green-500"}`}>
                   {price === "Error retrieving price" ? "Unable to retrieve price." : `Price: ${price}`}
