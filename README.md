@@ -1,6 +1,6 @@
 # Swappme-Dex: Decentralized Exchange Front-End 🚀
 
-Welcome to *Swappme-Dex*, a user-friendly front-end application designed to interact seamlessly with three smart contracts: **SimpleDEX**, **TokenA**, and **TokenB**. These contracts were developed by [@Gigi-U](https://www.github.com/Gigi-U) as part of my learning journey at **Eth Kipu**, an institution focused on blockchain education. This platform allows you to easily manage liquidity and perform token swaps on the Ethereum blockchain. Built with Scaffold-ETH and designed for ease of use, Swappme-Dex provides the tools to exchange tokens and manage liquidity with a clean and responsive UI.
+Welcome to *Swappme-Dex*, a user-friendly front-end application designed to interact seamlessly with three smart contracts: **SimpleDEX**, **TokenA**, and **TokenB**. These contracts were developed by me( [@Gigi-U](https://www.github.com/Gigi-U) ) as part of my learning journey at **Eth Kipu**, an institution focused on blockchain education. This platform allows you to easily manage liquidity and perform token swaps on the Ethereum blockchain. Built with Scaffold-ETH and designed for ease of use, Swappme-Dex provides the tools to exchange tokens and manage liquidity with a clean and responsive UI.
 
 
 ---
