@@ -8,9 +8,9 @@ Welcome to *Swappme-Dex*, a user-friendly front-end application designed to inte
 ## 🚧 Home Page: Under Construction 🚧
 
 The **Home Page** is currently under development. It will soon display key information, such as:  
-- Token prices  
-- User liquidity stats  
-- An overview of available features  
+- Swap Tokens  
+- Manage Liquidity
+- Get Tokens Prices 
 
 In the meantime, all the features are fully functional and accessible on the **Debug Contracts Page**.  
 
